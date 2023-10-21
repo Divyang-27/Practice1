@@ -84,7 +84,9 @@ function filterItem(e){
       var itemName=item.firstChild.textContent 
       var scdItemName = item.childNodes[1].textContent.toLowerCase(); 
 
-      if (itemName.indexOf(text) !== -1 || scdItemName.indexOf(text) !== -1){
+      if (itemName.indexOf(text) !== -1 || scdItemName.indexOf(text) !== -1) 
+
+{
         item.style.display='block'
       }
       else item.style.display='none'

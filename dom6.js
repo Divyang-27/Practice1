@@ -1,10 +1,12 @@
 
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
+var filter=document.getElementById('filter');
 
 // form submit event
 form.addEventListener('submit', addItem);
-
+//filter
+filter.addEventListener('keyup',filterItems)
 // delete event
 itemList.addEventListener('click', removeItem);
 
@@ -61,3 +63,15 @@ function removeItem(e) {
         }
     }
 }
+// filter items
+function filterItems(e){
+    var text=e.target.value.toLowerCase()
+    itemList.getElementsByTagName('li')
+    // convert to array 
+    Array.from(items).forEach(function(item)){
+        var itemName=item.firstChild
+    }
+
+}
+
+
