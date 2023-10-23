@@ -45,6 +45,10 @@
             height: 30px;
             width: 40%;
         }
+
+        li {
+            color: whitesmoke;
+        }
     </style>
 
 </head>
@@ -64,7 +68,6 @@
         </div>
         <div>
             <label for="Phone"><strong>Phone: </strong></label>
-
             <input type="text" name="contact" id="Phone" required>
         </div>
         <div>
@@ -80,9 +83,14 @@
 
     </ul>
     <script>
-        function lsstorage(e) {
-            event.preventDefault();
 
+        const parentele = document.getElementById('list-of-items')
+
+
+
+
+        function lsstorage(e) {
+            e.preventDefault();
             var name = e.target.Name.value;
             var mail = e.target.mail.value;
             var contact = e.target.contact.value;
@@ -96,18 +104,24 @@
                 times: `${times}`
             }
             let myObjserialized = JSON.stringify(myObj)
-            // localStorage.setItem("User Input", myObjserialized)
-            // myObjDeserialized = JSON.parse(localStorage.getItem("User Inputs"))
             localStorage.setItem(myObj.mail, myObjserialized)
-            showcase(myObj)
-
-        }
-        function showcase(myObj) {
-            const parentele = document.getElementById('list-of-items')
             const lchild = document.createElement('li')
-            lchild.textContent = myObj.name + " " + myObj.mail + " " + myObj.contact + " " + myObj.contact + " " + myObj.dates + " " + myObj.times
+            lchild.textContent = myObj.name + " " + myObj.mail + " " + myObj.contact + " " + myObj.dates + " " + myObj.times
+            const del = document.createElement('button')
+            del.textContent = 'Delete'
+            lchild.appendChild(del)
             parentele.appendChild(lchild)
+
+            del.addEventListener('click', removeitem)
+            // function to remove item 
+            function removeitem(e) {
+                e.preventDefault()
+                parentele.removeChild(lchild)
+                localStorage.removeItem(myObj.mail, myObjserialized)
+            }
         }
+
+
     </script>
 
 </body>

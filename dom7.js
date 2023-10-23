@@ -75,7 +75,6 @@ function removeItem(e) {
 }
 
 
-
 function filterItem(e){
     var text =e.target.value.toLowerCase()
     var item=itemList.getElementsByTagName('li')

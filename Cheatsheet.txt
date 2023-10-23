@@ -1,0 +1,11 @@
+Cheat sheet dom manipulation
+Parent node of every node is document
+You have to catch the right node 
+
+-queryselector
+-queryselectorAll
+-getElementByClassName 
+-getElementById
+-getElementByTagname
+
+ 
